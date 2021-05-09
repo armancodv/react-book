@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.armanco.reactbook.R
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment: Fragment(R.layout.fragment_home) {
@@ -17,9 +18,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         model.load()
         model.categories.observe(viewLifecycleOwner) { categories ->
             Log.d("HomeFragment", "categories")
-            categories?.forEach {
-                Log.d("HomeFragment", it.title.orEmpty())
-            }
+            categoryListView?.with(categories)
         }
     }
 }
