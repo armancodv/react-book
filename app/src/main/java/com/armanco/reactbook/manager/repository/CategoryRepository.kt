@@ -1,6 +1,7 @@
 package com.armanco.reactbook.manager.repository
 
 import com.armanco.reactbook.manager.db.CategoryDao
+import com.armanco.reactbook.manager.db.populate.react.PopulateReactCategory
 import com.armanco.reactbook.model.Category
 import javax.inject.Inject
 
@@ -12,4 +13,9 @@ class CategoryRepository @Inject constructor(
     suspend fun delete(category: Category) = categoryDao.delete(category)
     suspend fun deleteAll() = categoryDao.deleteAll()
     suspend fun getCount() = categoryDao.getCount()
+    suspend fun populate() {
+        insertAll(
+                PopulateReactCategory.category
+        )
+    }
 }
