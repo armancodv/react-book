@@ -5,7 +5,7 @@ import com.armanco.reactbook.model.Category
 
 @Dao
 interface CategoryDao {
-    @Query("SELECT * FROM category ORDER BY order_num ASC")
+    @Query("SELECT * FROM category")
     suspend fun getAll(): List<Category>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -5,10 +5,10 @@ import com.armanco.reactbook.model.Article
 
 @Dao
 interface ArticleDao {
-    @Query("SELECT * FROM article ORDER BY order_num ASC")
+    @Query("SELECT * FROM article")
     suspend fun getAll(): List<Article>
 
-    @Query("SELECT * FROM article WHERE category_id = :categoryId ORDER BY order_num ASC")
+    @Query("SELECT * FROM article WHERE category_id = :categoryId")
     suspend fun getByCategory(categoryId: Long): List<Article>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

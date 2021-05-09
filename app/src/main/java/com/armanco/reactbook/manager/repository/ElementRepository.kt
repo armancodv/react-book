@@ -1,6 +1,7 @@
 package com.armanco.reactbook.manager.repository
 
 import com.armanco.reactbook.manager.db.ElementDao
+import com.armanco.reactbook.manager.db.populate.react.PopulateReactArticle1
 import com.armanco.reactbook.model.Element
 import javax.inject.Inject
 
@@ -13,4 +14,9 @@ class ElementRepository @Inject constructor(
     suspend fun delete(element: Element) = elementDao.delete(element)
     suspend fun deleteAll() = elementDao.deleteAll()
     suspend fun getCount() = elementDao.getCount()
+    suspend fun populate() {
+        insertAll(
+                *PopulateReactArticle1.elements.toTypedArray()
+        )
+    }
 }

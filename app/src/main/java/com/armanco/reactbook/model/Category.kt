@@ -6,15 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Category(
-        @PrimaryKey(autoGenerate = true)
-        val id: Long = 0,
-
-        @ColumnInfo(name = "order_num", index = true)
-        val orderNum: Int,
+        @PrimaryKey
+        val id: Long,
 
         @ColumnInfo(name = "title")
-        val title: String,
+        val title: String? = null,
 
         @ColumnInfo(name = "description")
-        val description: String
+        val description: String? = null
 )

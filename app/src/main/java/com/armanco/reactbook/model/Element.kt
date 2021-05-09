@@ -15,13 +15,13 @@ data class Element(
         val articleId: Long,
 
         @ColumnInfo(name = "order_num", index = true)
-        val orderNum: Int,
+        val orderNum: Int = id.toInt(),
 
         @ColumnInfo(name = "text")
-        val text: String,
+        val text: String? = null,
 
         @ColumnInfo(name = "url")
-        val url: String,
+        val url: String? = null,
 
         @ColumnInfo(name = "element_type")
         @TypeConverters(ElementTypeConverters::class)
